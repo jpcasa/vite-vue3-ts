@@ -1,0 +1,21 @@
+[build]
+  command = "pnpm run build"
+  publish = "dist"
+
+# SPA Nuxt support
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "frame-ancestors http://127.0.0.1:3000 https://*.pop-convert.com https://*.myshopify.com https://*.wix.com https://manage.wix.com https://admin.shopify.com https://*.amplified.io;"
+
+# Headers for 'staging' branch only
+[context.branch-deploy]
+  [[headers]]
+    for = "/*"
+    [headers.values]
+      Content-Security-Policy = "frame-ancestors http://127.0.0.1:3000 https://*.pop-convert.com https://*.myshopify.com https://*.wix.com https://manage.wix.com https://admin.shopify.com https://*.amplified.io https://staging--amplified-io.netlify.app/ https://staging--pop-convert.netlify.app/;"

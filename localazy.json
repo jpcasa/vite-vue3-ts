@@ -1,0 +1,27 @@
+{
+
+    "writeKey": "a7784624724378002767-b847ec6c69173b90f4734967748c5bc7d72c3bae63a49aea263eeb0bd5ed67b2",
+    "readKey": "a7784624724378002767-0585eb4c6f33d476f7bbbf961a3f96c55679c1c6d7804579cb93400174f46df0",
+  
+    "upload": {
+      "type": "yaml",
+      "files": {
+        "pattern": "src/locales/*.yaml",
+        "lang": "${autodetectLang}"
+      }
+    },
+  
+    "download": {
+      "includeSourceLang": true,
+      "langAliases": {
+        "zh-Hant-TW": "zh-TW"
+      },
+      "files": {
+        "output": "src/locales/${lang}.yaml",
+        "conditions": [
+          "equals: ${file}, file.yaml"
+        ]
+      }
+    }
+  }
+  
